@@ -1,0 +1,114 @@
+.video-card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 -16px;
+  .video-card-container {
+    flex-basis: 33.33333%;
+    margin-bottom: 32px;
+
+    .wrapper {
+      background: $white;
+      margin: 0 16px;
+      border-radius: 6px;
+      box-shadow: $default-box-shadow;
+      display: block;
+    }
+    .video-card-thumbnail {
+      position: relative;
+      margin-bottom: 16px;
+      background: #333;
+      overflow: hidden;
+      border-radius: 6px 6px 0 0;
+      img {
+        display: block;
+        width: 100%;
+        max-width: 500px;
+        max-height: 207px;
+        z-index: 1;
+        object-fit: cover;
+        border-radius: 6px 6px 0 0;
+        opacity: 1;
+        transform: scale(1);
+        transition: 0.3s ease-in-out;
+      }
+      &:after {
+        content: "\25BA";
+        font-size: 60px;
+        line-height: 120px;
+        border-radius: 60px;
+        top: calc(50% - 60px);
+        left: calc(50% - 60px);
+        position: absolute;
+        z-index: 2;
+        display: block;
+        width: 120px;
+        height: 120px;
+        background: rgba(255, 255, 255, 0.66);
+        text-align: center;
+        color: $primary-color;
+      }
+    }
+    .video-card-meta {
+      padding-bottom: 16px;
+      h4 {
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: normal;
+        min-height: 48px;
+        max-height: 48px;
+        overflow: hidden;
+        padding: 0 16px;
+      }
+    }
+    &:hover {
+      .wrapper {
+        cursor: pointer;
+      }
+      .video-card-thumbnail {
+        img {
+          opacity: 0.5;
+          transform: scale(1.3);
+        }
+        &:after {
+          color: $accent-color;
+          background: rgba(255, 255, 255, 0.75);
+        }
+      }
+    }
+    @media (max-width: 768px) {
+      flex-basis: 50%;
+    }
+    @media (max-width: 480px) {
+      flex-basis: 100%;
+    }
+  }
+}
+
+.video-player-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  margin-bottom: 32px;
+}
+.video-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+// Watch Page
+.video-details {
+  .video-title {
+    margin-bottom: 8px;
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .video-timestamp {
+    margin-bottom: 24px;
+    opacity: 0.5;
+  }
+}

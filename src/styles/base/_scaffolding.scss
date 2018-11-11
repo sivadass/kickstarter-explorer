@@ -1,0 +1,16 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.container-fluid {
+  width: 100%;
+}
+.page-header {
+  font-size: 22px;
+  line-height: 28px;
+  margin: 24px 0;
+  a {
+    margin-right: 8px;
+  }
+}

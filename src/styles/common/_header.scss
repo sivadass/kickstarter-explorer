@@ -1,0 +1,14 @@
+.header {
+  background: $white;
+  box-shadow: $default-box-shadow;
+  padding: 16px 0;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    display: block;
+    max-width: 180px;
+  }
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import lodashFind from "lodash.find";
+import lodashFind from "lodash.filter";
 import ProjectItem from "../common/project-item";
 import Loading from "../common/loader";
 
@@ -40,10 +40,22 @@ class Home extends React.Component {
         titleKeyword: e.target.value
       },
       () => {
-        let result = lodashFind(this.state.projects, item => {
-          return item.title === this.state.titleKeyword;
-        });
-        console.log(result);
+        let keyword = this.state.titleKeyword;
+        let data = Object.assign({}, this.state.projects);
+        if (keyword.length > 2) {
+          let result = data.filter(project =>
+            project.title
+              .toLowerCase()
+              .startsWith(this.state.titleKeyword.toLowerCase())
+          );
+          this.setState({
+            projects: result
+          });
+        } else {
+          this.setState({
+            projects: this.state.projects
+          });
+        }
       }
     );
   };

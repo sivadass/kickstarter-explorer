@@ -1,5 +1,6 @@
 import React from "react";
 import Icon from "./icons";
+import moment from "moment";
 
 const ProjectItem = props => {
   return (
@@ -13,11 +14,15 @@ const ProjectItem = props => {
       </div>
       <div>{props.data.title}</div>
       <p>
-        <Icon name="location" size={16} /> {props.data.location}
+        <Icon name="location" size={14} /> {props.data.location}
       </p>
       <p>
-        <Icon name="tag" size={16} />
+        <Icon name="tag" size={14} />
         {` ${props.data["amt.pledged"]} ${props.data.currency.toUpperCase()}`}
+      </p>
+      <p>
+        <Icon name="duration" size={14} />
+        {moment(props.data["end.time"]).format("Do MMM, YYYY")}
       </p>
     </a>
   );

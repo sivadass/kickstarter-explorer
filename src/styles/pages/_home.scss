@@ -15,6 +15,12 @@
   padding: 0 16px;
   border-radius: 6px;
 }
+.no-results {
+  grid-column: span 4;
+  text-align: center;
+  padding: 64px;
+  opacity: 0.4;
+}
 
 .projects-container {
   display: grid;

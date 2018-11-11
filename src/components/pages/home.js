@@ -35,39 +35,20 @@ class Home extends React.Component {
   };
 
   handleTitleKeyword = e => {
-    this.setState(
-      {
-        titleKeyword: e.target.value
-      },
-      () => {
-        let keyword = this.state.titleKeyword;
-        let data = Object.assign({}, this.state.projects);
-        if (keyword.length > 2) {
-          let result = data.filter(project =>
-            project.title
-              .toLowerCase()
-              .startsWith(this.state.titleKeyword.toLowerCase())
-          );
-          this.setState({
-            projects: result
-          });
-        } else {
-          this.setState({
-            projects: this.state.projects
-          });
-        }
-      }
-    );
+    this.setState({
+      titleKeyword: e.target.value
+    });
   };
 
   render() {
-    const { isLoading, projects } = this.state;
-
+    const { isLoading, projects, titleKeyword } = this.state;
+    const filteredProjects = projects.filter(project => {
+      return (
+        project.title.toLowerCase().indexOf(titleKeyword.toLowerCase()) !== -1
+      );
+    });
     if (isLoading) {
       return <Loading />;
-    }
-    if (projects.length === 0) {
-      return "No products matched your search!";
     }
     return (
       <div className="container home">
@@ -81,9 +62,15 @@ class Home extends React.Component {
           />
         </div>
         <div className="projects-container">
-          {projects.map(project => (
-            <ProjectItem data={project} key={project["s.no"]} />
-          ))}
+          {filteredProjects.length > 0 ? (
+            filteredProjects.map(project => (
+              <ProjectItem data={project} key={project["s.no"]} />
+            ))
+          ) : (
+            <div className="no-results">
+              <h2>Sorry, no projects matched :(</h2>
+            </div>
+          )}
         </div>
       </div>
     );

@@ -24,6 +24,7 @@ const ProjectItem = props => {
         <Icon name="duration" size={14} />
         {moment(props.data["end.time"]).format("Do MMM, YYYY")}
       </p>
+      <p>{props.data.blurb}</p>
     </a>
   );
 };

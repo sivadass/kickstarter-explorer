@@ -1,11 +1,13 @@
 import React from "react";
 import axios from "axios";
 import ProjectItem from "../common/project-item";
+import Loading from "../common/loader";
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isLoading: false,
       projects: []
     };
   }
@@ -15,15 +17,18 @@ class Home extends React.Component {
   }
 
   getProjects = () => {
+    this.setState({ isLoading: true });
     axios
       .get("http://starlord.hackerearth.com/kickstarter")
       .then(response => {
         this.setState({
-          projects: response.data
+          projects: response.data,
+          isLoading: false
         });
       })
       .catch(function(error) {
         console.log(error);
+        this.setState({ isLoading: false });
       });
   };
 
@@ -31,7 +36,7 @@ class Home extends React.Component {
     const { isLoading, projects } = this.state;
 
     if (isLoading) {
-      return "Loading...";
+      return <Loading />;
     }
     if (projects.length === 0) {
       return "No products matched your search!";

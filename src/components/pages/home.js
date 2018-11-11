@@ -40,7 +40,7 @@ class Home extends React.Component {
       <div className="container home">
         <div className="projects-container">
           {projects.map(project => (
-            <ProjectItem data={project} />
+            <ProjectItem data={project} key={project["s.no"]} />
           ))}
         </div>
       </div>

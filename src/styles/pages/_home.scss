@@ -1,4 +1,20 @@
-#map {
-  min-height: calc(100vh - 119px);
-  position: relative;
+.projects-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 16px;
+  @media (max-width: 1024px) {
+    grid-template-columns: auto auto auto;
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: auto auto;
+  }
+  @media (max-width: 480px) {
+    grid-template-columns: auto;
+  }
+  .project-item-container {
+    padding: 16px;
+    background: $white;
+    box-shadow: $default-box-shadow;
+    border-radius: 4px;
+  }
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import ProjectItem from "../common/project-item";
 
 class Home extends React.Component {
   constructor(props) {
@@ -27,9 +28,21 @@ class Home extends React.Component {
   };
 
   render() {
+    const { isLoading, projects } = this.state;
+
+    if (isLoading) {
+      return "Loading...";
+    }
+    if (projects.length === 0) {
+      return "No products matched your search!";
+    }
     return (
-      <div className="container-fluid home">
-        <pre>{JSON.stringify(this.state.projects, null, 2)}</pre>
+      <div className="container home">
+        <div className="projects-container">
+          {projects.map(project => (
+            <ProjectItem data={project} />
+          ))}
+        </div>
       </div>
     );
   }

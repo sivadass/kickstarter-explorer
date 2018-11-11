@@ -1,5 +1,22 @@
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background: #fff;
+  margin: 32px 0;
+}
+.search-box {
+  border: 1px solid #ccc;
+  height: 44px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 16px;
+  border-radius: 6px;
+}
+
 .projects-container {
-  margin-top: 16px;
   display: grid;
   grid-template-columns: repeat(3, minmax(250px, 1fr));
   grid-gap: 16px;
@@ -21,6 +38,7 @@
 }
 
 .project-item-container {
+  position: relative;
   .project-thumb {
     margin-bottom: 8px;
     img {
@@ -28,5 +46,28 @@
       width: 100%;
       object-fit: cover;
     }
+  }
+  .project-title {
+    font-size: 18px;
+    line-height: 22px;
+    height: 44px;
+    margin-bottom: 8px;
+  }
+  .project-description {
+    font-size: 13px;
+    line-height: 18px;
+    margin-top: 8px;
+  }
+  .project-description-button {
+    margin-top: 8px;
+    border: none;
+    display: block;
+    color: $primary-color;
+    cursor: pointer;
+  }
+  .project-blurb,
+  .project-by,
+  .project-backers {
+    margin-bottom: 8px;
   }
 }

@@ -14,6 +14,9 @@
   margin: 0 auto;
   padding: 0 16px;
   border-radius: 6px;
+  &:focus {
+    border-color: #232323;
+  }
 }
 .no-results {
   grid-column: span 4;

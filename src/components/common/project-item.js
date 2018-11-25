@@ -15,20 +15,22 @@ class ProjectItem extends React.Component {
     });
   };
   render() {
-    const { data } = this.props;
+    const {
+      data: { title, location, currency }
+    } = this.props;
     const { isDescriptionOpen } = this.state;
     return (
       <div className="project-item-container">
         <div className="project-thumb">
           <img src="https://loremflickr.com/250/140/dog" alt="" />
         </div>
-        <h3 className="project-title">{data.title}</h3>
+        <h3 className="project-title">{title}</h3>
         <p className="project-location">
-          <Icon name="location" size={14} /> {data.location}
+          <Icon name="location" size={14} /> {location}
         </p>
         <p className="project-amount-pledged">
           <Icon name="tag" size={14} />
-          {` ${data["amt.pledged"]} ${data.currency.toUpperCase()}`}
+          {` ${data["amt.pledged"]} ${currency.toUpperCase()}`}
         </p>
         <p className="project-duration">
           <Icon name="calendar" size={14} />{" "}

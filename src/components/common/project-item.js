@@ -22,7 +22,7 @@ class ProjectItem extends React.Component {
     return (
       <div className="project-item-container">
         <div className="project-thumb">
-          <img src="https://loremflickr.com/250/140/dog" alt="" />
+          <img src="https://loremflickr.com/250/140/dog" alt={title} />
         </div>
         <h3 className="project-title">{title}</h3>
         <p className="project-location">

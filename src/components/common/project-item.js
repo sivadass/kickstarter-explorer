@@ -33,7 +33,8 @@ class ProjectItem extends React.Component {
           {` ${data["amt.pledged"]} ${currency.toUpperCase()}`}
         </p>
         <p className="project-duration">
-          <Icon name="calendar" size={14} />{" "}
+          <Icon name="calendar" size={14} />
+          &nbsp;
           {moment(data["end.time"]).format("Do MMM, YYYY")}
         </p>
         <button

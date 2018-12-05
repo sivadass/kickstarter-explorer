@@ -68,7 +68,7 @@ class Home extends React.Component {
             ))
           ) : (
             <div className="no-results">
-              <h2>Sorry, no projects matched :(</h2>
+              <h2>Sorry, no projects matched your search :(</h2>
             </div>
           )}
         </div>

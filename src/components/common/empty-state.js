@@ -9,4 +9,9 @@ const EmptyState = ({ title, message }) => {
   );
 };
 
+EmptyState.defaultProps{
+  title: '',
+  message: ""
+}
+
 export default EmptyState;

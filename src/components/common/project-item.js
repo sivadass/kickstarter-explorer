@@ -38,7 +38,7 @@ class ProjectItem extends React.Component {
           {moment(data["end.time"]).format("Do MMM, YYYY")}
         </p>
         <button
-          onClick={this.handleReadMore}
+          onClick={this.handleReadMore.bind(this)}
           className="project-description-button"
         >
           {isDescriptionOpen ? "Show Less" : "Show More"}

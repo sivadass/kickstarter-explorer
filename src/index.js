@@ -6,7 +6,7 @@ import DynamicImport from "./dynamic-import";
 import Header from "./components/common/header";
 import Footer from "./components/common/footer";
 import Loader from "./components/common/loader";
-import ScrollToTop from "./components/common/scroll-to-top";
+import ScrollToT from "./components/common/scroll-to-top";
 import "./styles/index.scss";
 
 const PreLoader = () => (
